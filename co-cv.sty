@@ -1,0 +1,110 @@
+\ProvidesPackage{co-cv}[2012/03/02]
+\usepackage[protrusion=true,expansion=true,final]{microtype}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+\usepackage[swedish,english]{babel}
+\usepackage{co-cv}
+\usepackage{graphicx, wrapfig, float} % Images and floats
+\usepackage{amsmath, amsthm, amssymb} % Math
+
+%\usepackage[urw-garamond]{mathdesign} %Nice!
+%\usepackage{fourier}
+\usepackage[defaultsans,scale=0.88]{lato} %Nice!
+\usepackage[mathlf]{MinionPro} %Nice! CO MOD
+\usepackage{booktabs, multirow, array, longtable} % Tables
+
+%
+% Page Layout
+%
+
+\settypeblocksize{*}{28.5pc}{1.7320508075}
+\setlrmargins{*}{*}{1}
+\setulmargins{*}{*}{1.5}
+\setheadfoot{1em}{6em}
+\checkandfixthelayout
+
+\linespread{1.1} %Line spacing / Leading
+
+% Better paragraphs division
+\setlength{\parindent}{0pt}
+%does not mess up section title specing
+\abnormalparskip{1.1ex}
+
+\setbeforesecskip{ 3ex }
+\setaftersecskip{ 0.5ex }
+
+\setbeforesubsecskip{ 2ex }
+\setaftersubsecskip{ 0.5ex }
+
+\setbeforesubsubsecskip{ 1ex }
+
+%hanging section numbers is pretty badass.
+\hangsecnum
+
+% for using hanging lists
+\usepackage{enumitem}
+
+\setdescription{leftmargin=0em}
+\setenumerate{leftmargin=0em}
+\setlist[enumerate,2]{leftmargin=3em}
+\setlist[enumerate,3]{leftmargin=5em}
+
+% Include pdfs
+\usepackage{pdfpages}
+
+% Links
+\usepackage{color}
+\definecolor{dark-blue}{rgb}{0, 0, 0.6}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=dark-blue,
+  citecolor=blue
+}
+\newcommand{\mailhref}[1]{\href{mailto:#1}{#1}}
+
+% Command for todos
+\newcommand{\todo}[1]{\textsf{\textcolor{blue}{\textit{\quad // TODO: #1 }}}}
+
+\renewcommand{\cftsectionfont}{\small}
+\renewcommand{\cftsectionpagefont}{\small}
+\cftsetindents{section}{1.5em}{2.3em}
+\renewcommand{\cftsectionleader}{}
+\renewcommand{\cftsectionafterpnum}{\cftparfillskip}
+
+\newcommand{\removepagenumbers} {\renewcommand{\thepage}{}}
+\renewcommand{\partnumfont}     {\sffamily\boldmath\huge}
+%\renewcommand{\parttitlefont}   {\sffamily\boldmath\huge}
+	%{\fontsize{27}{5pt} \sffamily\boldmath\selectfont\usefont{T1}{fla}{m}{n}}
+\renewcommand{\abstractnamefont}{\sffamily \boldmath\huge}
+\setsecheadstyle   {\Large\mdseries  \scshape \raggedright}
+\setsubsecheadstyle{\large\mdseries \scshape \itshape \raggedright}
+\setsubsubsecheadstyle{\sffamily\Huge\usefont{T1}{fla}{bx}{n}\raggedright}
+\setparaheadstyle   {\normalsize\bfseries\boldmath}
+\setsubparaheadstyle{\normalsize\bfseries\boldmath}
+
+%
+%Header and footer
+%TODO make this look pretty
+%
+
+\makepagestyle{plain}
+%\makeevenhead{newchap}{}{}{\sffamily\small\leftmark}
+%\makeoddhead{newchap}{\sffamily\small test}{}{}
+\makeevenfoot{plain}{}{}{}
+\makeoddfoot{plain}{}{}{}
+
+\setlength{\@tempdima}{\textwidth}
+\addtolength{\@tempdima}{-2\leftmargini}
+\captionwidth{\@tempdima}
+\changecaptionwidth
+\captiondelim{. }
+\captionnamefont{\usefont{T1}{fla}{eb}{n}\footnotesize}
+%\captiontitlefont{\sffamily\footnotesize}
+\endinput
+
+% No orphans
+\clubpenalty = 500
+\widowpenalty = 1000
